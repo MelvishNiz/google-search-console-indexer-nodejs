@@ -1,0 +1,19 @@
+{
+  "name": "google-search-console-indexer-nodejs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/msyahrul801/google-search-console-indexer-nodejs.git"
+  },
+  "author": "Muhammad Syahrul",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/msyahrul801/google-search-console-indexer-nodejs/issues"
+  },
+  "homepage": "https://github.com/msyahrul801/google-search-console-indexer-nodejs#readme"
+}
