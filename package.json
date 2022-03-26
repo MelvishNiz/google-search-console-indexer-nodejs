@@ -6,12 +6,17 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "author": "Muhammad Syahrul",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.2",
+    "express": "^4.17.3"
+  },
+  "devDependencies": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/msyahrul801/google-search-console-indexer-nodejs.git"
   },
-  "author": "Muhammad Syahrul",
-  "license": "ISC",
   "bugs": {
     "url": "https://github.com/msyahrul801/google-search-console-indexer-nodejs/issues"
   },
