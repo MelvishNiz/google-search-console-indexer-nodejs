@@ -2,19 +2,73 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="/public/css/style.css">
+    <title>Google Webmaster Tools</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="/public/css/bootstrap.min.css" rel="stylesheet">
+    <script src="/public/js/bootstrap.bundle.min.js"></script>
 </head>
 
 <body>
-    <center>
-        <p>Hello World!</p>
-        <img src="/public/images/github.jpg" alt="Github" width="300" height="300" />
-    </center>
 
+    <div class="container mt-3">
+        <center>
+            <h2>Google Webmaster Tools</h2>
+            <div id="info">
+                Insert Link domain for submit to Google Search Console
+            </div>
+        </center>
+
+        <form>
+            <div class="mb-3 mt-3">
+                <div class="row">
+                    <div class="col">
+                        <h3>Link's or Url's</h3>
+                        <textarea class="form-control" rows="15" id="url" name="text"></textarea>
+                    </div>
+                    <div class="col">
+                        <h3>Log</h3>
+                        <textarea class="form-control" rows="15" id="log" name="text"></textarea>
+                    </div>
+                </div>
+
+            </div>
+        </form>
+        <center>
+            <button type="submit" class="btn btn-primary" onclick="submit()">Submit</button>
+        </center>
+
+    </div>
+    <script>
+        function submit() {
+            var link = document.querySelector("#url").value.split('\n');
+            for (var i = 0; i < link.length; i++) {
+                var myHeaders = new Headers();
+                myHeaders.append("Content-Type", "application/json");
+
+                var raw = JSON.stringify({
+                    "link": link[i]
+                });
+
+                var requestOptions = {
+                    method: 'POST',
+                    headers: myHeaders,
+                    body: raw,
+                    redirect: 'follow'
+                };
+
+                fetch("http://localhost:3000", requestOptions)
+                    .then(response => response.json())
+                    .then(result => addLog(result))
+                    .catch(error => console.log('error', error));
+            }
+
+            function addLog(result) {
+                var status = result['status'];
+                document.querySelector("#log").innerHTML += `${result['url'].substring(0, 50)} - ${status}\n`;
+            }
+        }
+    </script>
 </body>
 
 </html>
