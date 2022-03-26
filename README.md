@@ -8,7 +8,9 @@
   npm install
 ```
 # Configuration
-Rename file **example.service_account.json** to **service_account.json** and input
+1. First off you will need to set up access to the Indexing API in Google Cloud Platform - follow the instructions below.
+https://developers.google.com/search/apis/indexing-api/v3/prereqs.
+2. Once you have access to the Indexing API you will be able to download the public/private key pair JSON file, it contains all your credentials then Rename the file **example.service_account.json** to **service_account. json** and enter your public/private key
 # Run
 ```
   npm start
